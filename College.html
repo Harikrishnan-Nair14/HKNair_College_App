@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            padding-left: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            color: white;
+            background-color: #333;
+            padding-top: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            transition: 0.5s;
+        }
+
+        .sidebar a {
+            padding: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #555;
+        }
+
+        .content {
+            margin-left: 0;
+            padding: 20px;
+        }
+
+        .radio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+        }
+
+        .radio-item input[type="radio"] {
+            display: none;
+        }
+
+        .radio-item label {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 85%;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .radio-item label:hover {
+            background-color: #0056b3;
+        }
+
+        .radio-item input[type="radio"]:checked+label {
+            background-color: #0056b3;
+        }
+
+        #phoneNumber {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        #iframeContainer {
+            margin-top: 60px;
+            width: 100%;
+            height: calc(100vh - 120px);
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .show-more-btn {
+            background-color: #115405;
+            color: #fff;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 60px;
+            margin-right: 25px;
+            margin-bottom: 60px;
+            position: absolute;
+            right: 20px;
+        }
+
+        .adsense-container {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style> 
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Options</h2>
+            <div class="radio-grid">
+                <div class="radio-item">
+                    <input type="radio" id="profile" name="link" value="https://www.sxcce.edu.in/mobile/studview.php">
+                    <label for="profile">Your Profile</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="fees" name="link" value="https://www.sxcce.edu.in/mobile/fees.php">
+                    <label for="fees">Fees Balance</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="marks" name="link" value="https://www.sxcce.edu.in/mobile/emarks.php">
+                    <label for="marks">Semester Marks</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="internal" name="link" value="https://www.sxcce.edu.in/mobile/imarks.php">
+                    <label for="internal">Internal Marks</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="attendance" name="link" value="https://www.sxcce.edu.in/mobile/absent.php">
+                    <label for="attendance">Attendance Details</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="discipline" name="link"
+                        value="https://www.sxcce.edu.in/mobile/discipline.php">
+                    <label for="discipline">Discipline Details</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="dashboard" name="link"
+                        value="https://www.sxcce.edu.in/mobile/dashboard.php">
+                    <label for="dashboard">Dashboard</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="events" name="link" value="https://www.sxcce.edu.in/mobile/events.php">
+                    <label for="events">Event Page</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="attendance_new" name="link"
+                        value="https://cse-2k25.web.app/info/attendance.html">
+                    <label for="attendance_new">Attendance percentage(approx.)</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="google_script" name="link"
+                        value="https://script.google.com/macros/s/AKfycbxst60QtF0JXgOgk1mwxu6AHAEeLmuZoux2UHjWZXYhIojTnuWJQn5NdQ4EJuiAYXUI/exec">
+                    <label for="google_script">Notes</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="google_script2" name="link"
+                        value="https://script.google.com/macros/s/AKfycbwfUisa3nMbQbgguv8E641pFjPYpC21qjkel5WEfx4j2SMXgV7QTIWGN1O-NenCeJZtzA/exec">
+                    <label for="google_script2">Info</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="google_script3" name="link"
+                        value="https://script.google.com/macros/s/AKfycbwfUisa3nMbQbgguv8E641pFjPYpC21qjkel5WEfx4j2SMXgV7QTIWGN1O-NenCeJZtzA/exec?view=admin">
+                    <label for="google_script3">Info Admin</label>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <label for="phoneNumber">Phone Number (with country code):</label>
+            <input type="number" id="phoneNumber" name="ph" required placeholder="eg:919876543210">
+            <button class="show-more-btn" onclick="toggleSidebar()">Options</button>
+            <div id="iframeContainer"></div>
+        </div>
+    </div>
+    <div class="adsense-container">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5919269120617673" data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    <script>
+        var radioButtons = document.querySelectorAll('input[name="link"]');
+        var phoneNumberInput = document.getElementById("phoneNumber");
+        var iframeContainer = document.getElementById('iframeContainer');
+        var sidebar = document.querySelector('.sidebar');
+        var showMoreBtn = document.querySelector('.show-more-btn');
+
+        function checkInternetConnection() {
+            return navigator.onLine;
+        }
+
+        function showError(message) {
+            iframeContainer.innerHTML = '<p>' + message + '</p>';
+        }
+
+        window.onload = function () {
+            var storedPhoneNumber = localStorage.getItem('phoneNumber');
+            if (storedPhoneNumber) {
+                phoneNumberInput.value = storedPhoneNumber;
+                showDashboard();
+            }
+        };
+
+        function showDashboard() {
+            var phoneNumber = phoneNumberInput.value;
+            var dashboardURL = "https://www.sxcce.edu.in/mobile/dashboard.php" + "?ph=" + phoneNumber;
+            loadIframe(dashboardURL);
+        }
+
+        function loadIframe(url) {
+            if (checkInternetConnection()) {
+                var iframe = document.createElement('iframe');
+                iframe.src = url;
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('scrolling', 'auto');
+                iframeContainer.innerHTML = '';
+                iframeContainer.appendChild(iframe);
+            } else {
+                showError("No internet connection available.");
+            }
+        }
+
+        phoneNumberInput.addEventListener('input', function () {
+            localStorage.setItem('phoneNumber', phoneNumberInput.value);
+        });
+
+        radioButtons.forEach(function (radioButton) {
+            radioButton.addEventListener('change', function () {
+                var selectedLink = this.value;
+                var phoneNumber = phoneNumberInput.value;
+
+                if (selectedLink === "https://script.google.com/macros/s/AKfycbwfUisa3nMbQbgguv8E641pFjPYpC21qjkel5WEfx4j2SMXgV7QTIWGN1O-NenCeJZtzA/exec?view=admin" ||
+                    selectedLink === "https://script.google.com/macros/s/AKfycbwfUisa3nMbQbgguv8E641pFjPYpC21qjkel5WEfx4j2SMXgV7QTIWGN1O-NenCeJZtzA/exec") {
+
+                    window.open(selectedLink, '_blank');
+                } else if (selectedLink === "https://script.google.com/macros/s/AKfycbxst60QtF0JXgOgk1mwxu6AHAEeLmuZoux2UHjWZXYhIojTnuWJQn5NdQ4EJuiAYXUI/exec" ||
+                    selectedLink === "https://cse-2k25.web.app/info/attendance.html") {
+                    loadIframe(selectedLink);
+                } else {
+                    var redirectURL = selectedLink + "?ph=" + phoneNumber;
+                    loadIframe(redirectURL);
+                }
+
+                sidebar.style.width = 0;
+                showMoreBtn.textContent = "Options";
+            });
+        });
+
+
+        function toggleSidebar() {
+            if (sidebar.style.width === '0px' || sidebar.style.width === '') {
+                sidebar.style.width = '250px';
+                showMoreBtn.textContent = "Close";
+            } else {
+                sidebar.style.width = '0';
+                showMoreBtn.textContent = "Options";
+            }
+        }
+    </script>
+</body>
+
+</html>
